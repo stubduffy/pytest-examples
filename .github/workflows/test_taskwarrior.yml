@@ -39,6 +39,8 @@ jobs:
 
     - name: checkout testcode
       uses: actions/checkout@v3
+      with:
+        path: pytest-tests
 
     - name: set up Python 3.10
       uses: actions/setup-python@v4
@@ -48,9 +50,10 @@ jobs:
     - uses: actions/cache@v3
       with:
         path: ${{ env.pythonLocation }}
-        key: ${{ env.pythonLocation }}-${{ hashFiles('./requirements.txt') }}
+        key: ${{ env.pythonLocation }}-${{ hashFiles('./pytest-tests/requirements.txt') }}
 
     - name: install Python dependencies
+      working-directory: ./pytest-tests
       run: |
         pip3 install -r requirements.txt
       shell: bash
@@ -63,6 +66,7 @@ jobs:
       shell: bash
 
     - name: run the tests
+      working-directory: ./pytest-tests
       run: |
         pytest -s -v
       shell: bash
