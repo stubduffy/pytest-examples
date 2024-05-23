@@ -60,7 +60,7 @@ jobs:
         pytest -s -v
       shell: bash
       env:
-        TASKW_PATH: $GITHUB_WORKSPACE/taskwarrior/build/src
+        TASKW_PATH: ${{ github.workspace }}/taskwarrior/build/src
 
 
 
