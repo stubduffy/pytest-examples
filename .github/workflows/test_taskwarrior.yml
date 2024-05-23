@@ -58,9 +58,8 @@ jobs:
     - name: debug
       run: |
         ls
-        ls ./testwarrior
-        ls ./testwarrior/build
-        ls ./testwarrior/build/src
+        pwd
+        echo $GITHUB_WORKSPACE
       shell: bash
 
     - name: run the tests
