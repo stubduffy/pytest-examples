@@ -32,6 +32,12 @@ jobs:
         mkdir taskwarrior
         cd taskwarrior
         gh release download --pattern '*.gz' --repo GothenburgBitFactory/taskwarrior
+        tar xzf task-*.tar.gz
+        rm task-*.gz
+        cd task-*
+        cmake -DCMAKE_BUILD_TYPE=release .
+        make
+        make install
       shell: bash
       env:
         GH_TOKEN: ${{ github.token }}
