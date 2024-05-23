@@ -28,9 +28,10 @@ jobs:
     #   shell: bash
 
     - name: trial run
-      # working-directory: ./taskwarrior
+      working-directory: ./taskwarrior
       run: |
-        env
+        touch $HOME/.taskrc
+        echo data.location=/Users/stuart.duffy/.task >> $HOME/.taskrc
         ./build/src/task add baloney
 
 
