@@ -4,28 +4,32 @@ on:
     branches: main
   pull_request:
     branches: main
+
 jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
-    # - name: checkout taskwarrior latest
-    #   uses: actions/checkout@v3
-    #   with:
-    #     repository: GothenburgBitFactory/taskwarrior
-    #     path: taskwarrior
+    - name: checkout taskwarrior latest
+      uses: actions/checkout@v3
+      with:
+        repository: GothenburgBitFactory/taskwarrior
+        path: taskwarrior
 
-    # - uses: actions/cache@v3
-    #   with:
-    #     path: ./taskwarrior/build
-    #     key: taskwarrior-build
+    - uses: actions/cache@v3
+      with:
+        path: ./taskwarrior/build
+        key: taskwarrior-build-${{ hashFiles('./taskwarrior/CMakeLists.txt') }}
 
-    # - name: build taskwarrior
-    #   working-directory: ./taskwarrior
-    #   run: |
-    #     cmake -S . -B build -DCMAKE_BUILD_TYPE=RelWithDebInfo
-    #     cmake --build build
-    #   shell: bash
+    - name: build taskwarrior
+      working-directory: ./taskwarrior
+      run: |
+        if [ -d "build" ]; then
+          exit 0
+        fi
+        cmake -S . -B build -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        cmake --build build
+      shell: bash
 
     - name: trial run
       working-directory: ./taskwarrior
