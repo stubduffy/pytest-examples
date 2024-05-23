@@ -15,6 +15,11 @@ jobs:
         repository: GothenburgBitFactory/taskwarrior
         path: taskwarrior
 
+    - uses: actions/cache@v3
+      with:
+        path: ./taskwarrior/build
+        key: taskwarrior-build
+
     - name: build taskwarrior
       working-directory: ./taskwarrior
       run: |
@@ -22,10 +27,7 @@ jobs:
         cmake --build build
       shell: bash
 
-    - uses: actions/cache@v3
-      with:
-        path: ./taskwarrior/build
-        key: taskwarrior-build
+
 
       
     # - uses: actions/checkout@v4
