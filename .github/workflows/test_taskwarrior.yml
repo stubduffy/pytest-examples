@@ -22,5 +22,10 @@ jobs:
         cmake --build build
       shell: bash
 
+    - uses: actions/cache@v3
+      with:
+        path: ./taskwarrior/build
+        key: taskwarrior-build
+
       
     # - uses: actions/checkout@v4
