@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: checkout taskwarrior latest
-          uses: actions/checkout@v3
-          with:
-            repository: GothenburgBitFactory/taskwarrior
-            path: taskwarrior
+      uses: actions/checkout@v3
+      with:
+        repository: GothenburgBitFactory/taskwarrior
+        path: taskwarrior
 
     - name: build taskwarrior
       working-directory: ./taskwarrior
