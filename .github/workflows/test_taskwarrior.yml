@@ -36,6 +36,7 @@ jobs:
       run: |
         touch $HOME/.taskrc
         echo data.location=./taskwarrior/.task >> $HOME/.taskrc
+        echo confimation=no  >> $HOME/.taskrc
 
     - name: checkout testcode
       uses: actions/checkout@v3
@@ -56,13 +57,6 @@ jobs:
       working-directory: ./pytest-tests
       run: |
         pip3 install -r requirements.txt
-      shell: bash
-
-    - name: debug
-      run: |
-        ls
-        pwd
-        echo $GITHUB_WORKSPACE
       shell: bash
 
     - name: run the tests
