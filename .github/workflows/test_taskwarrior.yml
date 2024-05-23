@@ -35,7 +35,7 @@ jobs:
       working-directory: ./taskwarrior
       run: |
         touch $HOME/.taskrc
-        echo data.location=/Users/stuart.duffy/.task >> $HOME/.taskrc
+        echo data.location=./taskwarrior/.task >> $HOME/.taskrc
         ./build/src/task add baloney
 
 
