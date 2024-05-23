@@ -29,4 +29,4 @@ Run all tests:
    - Figure out how to test features requiring confirmation (e.g. delete), i.e. not setting `confirmation=no`.
  - FakeStoreApi
    - Refactor to make some duplicated code more reusable
-   - could extend to 
+   - Could look a bit closer into the details of what's returned and that it makes sense, e.g. check no products are repeated etc
