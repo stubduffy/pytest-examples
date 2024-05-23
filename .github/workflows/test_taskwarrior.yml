@@ -37,6 +37,9 @@ jobs:
         touch $HOME/.taskrc
         echo data.location=./taskwarrior/.task >> $HOME/.taskrc
 
+    - name: checkout testcode
+      uses: actions/checkout@v3
+
     - name: set up Python 3.10
       uses: actions/setup-python@v4
       with:
