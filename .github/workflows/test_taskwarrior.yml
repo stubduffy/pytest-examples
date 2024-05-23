@@ -55,6 +55,13 @@ jobs:
         pip3 install -r requirements.txt
       shell: bash
 
+    - name: debug
+      run: |
+        ls testwarrior
+        ls testwarrior/build
+        ls testwarrior/build/src
+      shell: bash
+
     - name: run the tests
       run: |
         pytest -s -v
