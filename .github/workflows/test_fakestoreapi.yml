@@ -36,5 +36,5 @@ jobs:
     - name: run the tests
       working-directory: ./pytest-tests
       run: |
-        pytest ./tests/test_fakestoreapi.py -s -v
+        pytest ./tests/fakestoreapi/test_fakestoreapi.py -s -v
       shell: bash
