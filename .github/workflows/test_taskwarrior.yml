@@ -33,3 +33,5 @@ jobs:
         cd taskwarrior
         gh release download --pattern '*.gz' --repo GothenburgBitFactory/taskwarrior
       shell: bash
+      env:
+        GH_TOKEN: ${{ github.token }}
