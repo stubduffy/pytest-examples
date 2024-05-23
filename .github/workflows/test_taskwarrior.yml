@@ -57,9 +57,10 @@ jobs:
 
     - name: debug
       run: |
-        ls testwarrior
-        ls testwarrior/build
-        ls testwarrior/build/src
+        ls
+        ls ./testwarrior
+        ls ./testwarrior/build
+        ls ./testwarrior/build/src
       shell: bash
 
     - name: run the tests
