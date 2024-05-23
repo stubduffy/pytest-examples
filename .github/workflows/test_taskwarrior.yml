@@ -62,7 +62,7 @@ jobs:
     - name: run the tests
       working-directory: ./pytest-tests
       run: |
-        pytest -s -v
+        pytest ./tests/test_taskwarrior.py -s -v
       shell: bash
       env:
         TASKW_PATH: ${{ github.workspace }}/taskwarrior/build/src
