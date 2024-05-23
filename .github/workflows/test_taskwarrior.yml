@@ -1,0 +1,26 @@
+name: taskwarrior tests
+on:
+  push:
+    branches: main
+  pull_request:
+    branches: main
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout taskwarrior latest
+          uses: actions/checkout@v3
+          with:
+            repository: GothenburgBitFactory/taskwarrior
+            path: taskwarrior
+
+    - name: build taskwarrior
+      working-directory: ./taskwarrior
+      run: |
+        cmake -S . -B build -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        cmake --build build
+      shell: bash
+
+      
+    # - uses: actions/checkout@v4
