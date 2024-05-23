@@ -9,25 +9,26 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
-    - name: checkout taskwarrior latest
-      uses: actions/checkout@v3
-      with:
-        repository: GothenburgBitFactory/taskwarrior
-        path: taskwarrior
+    # - name: checkout taskwarrior latest
+    #   uses: actions/checkout@v3
+    #   with:
+    #     repository: GothenburgBitFactory/taskwarrior
+    #     path: taskwarrior
 
-    - uses: actions/cache@v3
-      with:
-        path: ./taskwarrior/build
-        key: taskwarrior-build
+    # - uses: actions/cache@v3
+    #   with:
+    #     path: ./taskwarrior/build
+    #     key: taskwarrior-build
 
-    - name: build taskwarrior
+    # - name: build taskwarrior
+    #   working-directory: ./taskwarrior
+    #   run: |
+    #     cmake -S . -B build -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     cmake --build build
+    #   shell: bash
+
+    - name: get taskwarrior release
       working-directory: ./taskwarrior
       run: |
-        cmake -S . -B build -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        cmake --build build
+        gh release download --pattern '*.gz' --repo GothenburgBitFactory/taskwarrior
       shell: bash
-
-
-
-      
-    # - uses: actions/checkout@v4
