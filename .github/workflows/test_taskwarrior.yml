@@ -28,7 +28,7 @@ jobs:
     #   shell: bash
 
     - name: trial run
-      working-directory: ./taskwarrior
+      # working-directory: ./taskwarrior
       run: |
         env
         ./build/src/task add baloney
