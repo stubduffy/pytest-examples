@@ -1,6 +1,6 @@
-# rasa challenge - CLI and API tests
+# pytest-examples
 
-Repo showcasing the testing of Taskwarrior and fakestoreapi.
+Repo showcasing the use of pytest in testing of Taskwarrior and fakestoreapi.
 
 ## Setup dependencies
 
@@ -37,11 +37,3 @@ It then installs all python dependencies and runs the relevant tests.
 ### FakeStoreAPI
 The `test_fakestoreapi` workflow simply installs all python dependencies and runs the relevant tests.
 
-
-## Future Improvements
- - TaskWarrior
-   - Test more of the Taskwarrior functionality, we're only scratching the surface of what it does here.
-   - Figure out how to test features requiring confirmation (e.g. delete), i.e. not setting `confirmation=no`.
- - FakeStoreApi
-   - Refactor to make some duplicated code more reusable
-   - Could look a bit closer into the details of what's returned and that it makes sense, e.g. check no products are repeated etc
